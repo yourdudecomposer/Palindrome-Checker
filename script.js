@@ -8,21 +8,31 @@ function palindrome(str) {
 
 
 let input = document.querySelector('input');
-let p = document.querySelectorAll('p');
+let p = document.querySelector('p');
 let button = document.querySelector('button');
 
-function setStyle(t) {
-    if(t === 'true') p[1].style.background = 'green';
-    else p[1].style.background = 'red';
+function setStyleP(t) {
+    if (t === 'true') p.style.background = 'green';
+    else p.style.background = 'red';
 }
-
-
+function setButtomStyle() {
+    button.textContent = 'Enter something';
+    p.textContent = '';
+    p.style.background = 'none';
+    button.style.background = 'red'
+}
 button.addEventListener('click', () => {
+    if (input.value === '') {
+        setButtomStyle()
+        return
+    };
+    button.textContent = 'Check';
+    button.style.background = 'burlywood'
+
     let val = input.value;
-    p[0].textContent = `is "${val}" palindrome..?`;
-    p[1].textContent = (palindrome(val));
-    setStyle( p[1].textContent );
-    console.log(p[1].textContent );
+    p.textContent = (palindrome(val));
+    setStyleP(p.textContent);
+    console.log(p.textContent);
     input.value = '';
 })
 
