@@ -1,4 +1,5 @@
 
+
 function palindrome(str) {
     let freeStr = str.replace(/_|\W/g, '');
     return freeStr.toLowerCase() === freeStr.split('')
